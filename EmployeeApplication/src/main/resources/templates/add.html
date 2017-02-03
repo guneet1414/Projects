@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Employee Application - Add</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous" />
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous" />
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css?family=Baloo+Thambi|Quicksand"
+	rel="stylesheet" />
+
+<!-- Style -->
+<style type="text/css">
+.well {
+	margin-top: 1%;
+	padding-left: 2%;
+	font-family: 'Baloo Thambi', cursive;
+}
+
+.panel {
+	width: 50%;
+	margin-left: 25%;
+}
+
+.panel-heading {
+	font-family: 'Baloo Thambi', cursive;
+}
+
+.panel-body {
+	font-family: 'Quicksand', sans-serif;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="well well-sm">
+			<h1 align="center">Employee Application</h1>
+		</div>
+		<!-- end of heading well -->
+		<div class="panel panel-default">
+			<div class="panel-heading text-center">
+				<h2 style="color: #A9A9A9;">Add Employee</h2>
+			</div>
+			<div class="panel-body">
+				<form action="#" th:action="@{/saveEmployee}"
+					th:object="${employee}" method="post">
+					<div class="table-responsive">
+						<table class="table">
+							<tr>
+								<td>First Name</td>
+								<td><input type="text" th:field="*{firstName}" class="form-control"/></td>
+							</tr>
+							<tr>
+								<td>Last Name</td>
+								<td><input type="text" th:field="*{lastName}" class="form-control"/></td>
+							</tr>
+							<tr>
+								<td>Email</td>
+								<td><input type="text" th:field="*{email}" class="form-control"/></td>
+							</tr>
+							<tr>
+								<td>Address 1</td>
+								<td><input type="text" th:field="*{address1}" class="form-control"/></td>
+							</tr>
+							<tr>
+								<td>Address 2</td>
+								<td><input type="text" th:field="*{address2}" class="form-control"/></td>
+							</tr>
+							<tr>
+								<td>City</td>
+								<td><input type="text" th:field="*{city}" class="form-control"/></td>
+							</tr>
+							<tr>
+								<td>State</td>
+								<td><input type="text" th:field="*{state}" class="form-control"/></td>
+							</tr>
+							<tr>
+								<td>Zip</td>
+								<td><input type="text" th:field="*{zip}" class="form-control"/></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><button type="submit" class="btn btn-primary" style="width: 50%;margin-bottom:-9%;">Save</button></td>
+							</tr>
+						</table>
+					</div>
+					<!-- end of table div -->
+				</form>
+			</div>
+			<!-- panel body -->
+		</div>
+		<!-- end of panel -->
+	</div>
+	<!-- end of container -->
+	<!-- Latest compiled and minified JavaScript -->
+	<!-- jquery -->
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<!-- bootstrap -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+</body>
+</html>

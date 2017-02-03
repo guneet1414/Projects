@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Employee Application</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous" />
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous" />
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css?family=Baloo+Thambi|Quicksand"
+	rel="stylesheet" />
+
+<!-- Style -->
+<style type="text/css">
+.well {
+	margin-top: 1%;
+	padding-left: 2%;
+	font-family: 'Baloo Thambi', cursive;
+}
+
+.panel {
+	width: 50%;
+	margin-left: 25%;
+}
+
+.panel-heading {
+	font-family: 'Baloo Thambi', cursive;
+}
+
+.panel-body {
+	font-family: 'Quicksand', sans-serif;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="well well-sm">
+			<h1 align="center">Employee Application</h1>
+		</div>
+		<!-- end of heading well -->
+		<div class="panel panel-default">
+			<div class="panel-heading text-center">
+				<h2 style="color: #A9A9A9;">Employee List</h2>
+			</div>
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<td>Select</td>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Address</th>
+							</tr>
+							<tr th:each="emp : ${emplist}">
+								<!-- iterating over the response list -->
+								<td class="filterable-cell">
+									<a th:href="|@{/delete/}${emp.Id}|">Delete</a>
+								</td>
+								<td th:text="${emp.firstName + ' ' + emp.lastName}" class="filterable-cell">Employee name</td>
+								<td th:text="${emp.email}" class="filterable-cell">Email</td>
+								<td class="filterable-cell">
+									<p th:text="${emp.address1 + ','}" style="margin-bottom: -2%;">address1</p>
+									<p th:text="${emp.address2 + ','}" style="margin-bottom: -2%;">address1</p>
+									<p th:text="${emp.city + ', ' + emp.state + ' - ' + emp.zip}"></p>
+								</td>
+							</tr>
+						</thead>
+					</table>
+				</div><!-- end of table div -->
+			</div><!-- end of panel body -->
+			<div style="margin-left: 89%;margin-bottom: 2%;">
+				<a th:href="|@{/add}|" class="btn btn-primary">Add</a>
+			</div>
+		</div>
+		<!-- end of panel -->
+	</div>
+	<!-- end of container -->
+	<!-- Latest compiled and minified JavaScript -->
+	<!-- jquery -->
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<!-- bootstrap -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+</body>
+</html>
